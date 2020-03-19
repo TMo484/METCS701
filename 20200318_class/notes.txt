@@ -1,0 +1,73 @@
+----Discussion Notes----
+-- Linking javascript vs. embedded? For things like simple canvas creations, wouldn't embedded be easier?
+
+----Syllabus Recap----
+-- Look at Javascript Patterns (from Lecture notes)
+-- Typescript is simply a typed version of Javascript
+
+----Lecture Notes----
+-- Java applets were the initial formate for creating Rich Internet Applications
+-- HTML5 attempted to remove some of the plugins that were necessary for RIAs (like Flash, MSFT Silverlight, etc.)
+-- Get MAMP server ready! Create a MAMP server and add a folder called cs701 to extract files into as necessary
+-- Link Javascript files rather than creating embedded JS
+
+
+----Advanced Javascript Notes----
+?? Creating Objects: Factory patter, Constructor pattern, Prototype pattern, Hybrid pattern (<-- Cover these)
+?? Class syntax vs. Prototype chaining
+-- IIFE (Immediately Invoted Function Expression) pattern
+----(function() {
+        //code
+    })();           <-- The function is immediately invoked with the second set of brackets
+
+-- If you are using a module that also uses the $ you can wrap code in an IIFE
+----(function($) {
+        $(document).ready(function() {
+            //code
+        });
+    })(jQuery)      <-- Passing jQuery here protects the use of the $
+
+-- Module pattern
+----Variables are hidden within the module alongside the functions that actually modify the variables; that way users cannot access or modify the data directly
+??--View the notes here: http://kalathur.com/cs701/Module1_Samples/JS_Patterns/source.php?file=ex01_module1.html
+
+
+--Singleton pattern
+----View the notes here: http://kalathur.com/cs701/Module1_Samples/JS_Patterns/source.php?file=ex05_singleton1.html
+
+
+----HTML5 Notes----
+-- Canvas 
+---- The canvas can be accessed as a DOM element; it is the only object that can be accessed here
+---- Shapes within the canvas are not accessible with the DOM API
+---- Adding <canvas> tags and giving it an id allows us to access within Javascript
+------ Each canvas has a context, mostly we use getContext("2D")
+---- To begin drawing on the canvas, we need to access the tag and then the context!
+---- Images must be loaded before they can be applied
+        img = new Image()
+        img.src = "logo.png"
+        img.onload = (function() {
+            context.drawImage(img, 50, 50)
+        })
+
+---- If adding shadows to text or objects, be sure to reset them to 0 before attempting to add a new objects
+---- You can add event handlers to the canvas object
+---- If you want to have interactive images, it is easier to use Canvas
+
+-- SVG
+---- SVG is built completely within HTML; each object can be accessed in the DOM
+---- Within the SVG Tag, you can have children tags like <text> and <image>
+---- If you want drag-and-drop functionality, it will be easier to work with with SVG
+---- SVG has a better ability to translate & transform objects (like rotation and scaling)
+------ You can add a <g> tag to group items together when you want to translate 
+---- <animate> and <animateTransform> tags can be used to create animations on other tags
+------ attributeName is used to define which animations is desired
+
+-- Audio & Video
+---- For audio tags, you can provide many different fileTypes so that it will automatically progress if one is unavailable or unsupported 
+---- In HTML, you can "autoplay"; or within JS you can access ".play"
+------ With the Javascript method, you can create your own play/pause buttons for example
+
+---- For video tags, it is very similar to audio tags
+---- In addition, video tags can have "posters" (an attribute) to display a static image before the video plays
+
