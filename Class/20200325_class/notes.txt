@@ -1,0 +1,56 @@
+-- Discussion notes
+--
+
+---- Fetch Module
+-- Fetch is an asynchronous event, and it returns a promise
+    -- When JSON is returned, we can use the .JSON() function
+    -- When XML is returned, we can use the .text() function
+
+---- Drag and Drop
+    -- Native function in HTML 5; using the draggable attribute (draggable=true)
+    -- You have to use event handlers to handle the drag source and the drop target:
+        -- Drag source: dragstart, drag, dragend
+        -- Drop target: dragenter, dragover, drop
+    ?? Event Bubbling & Event Handling
+        -- Look these up!!!
+    -- event.preventDefault() stops the browser from doing whatever it would normally do (like opening an image)
+    -- When setting drop handlers, you have to create a clone (cloneNode()) of the tag
+
+---- Geolocation
+    -- Location is returned in latitude and longitude
+    -- getCurrentPosition returns the current location of the user
+    -- watchPosition listens if the location changes, and sends the updated location if movement is detected
+    -- clearWatch stops the watchPosition listening
+
+    -- navigator.geolocation.getCurrentPosition() is async, so you provide a callback function that is called when the navigator returns
+        -- It is returned as an object whose properties can be accessed
+        -- Error Handling: You can also provide error handling as a second callback in the getCurrentPosition() function
+        -- Options: You can adjust the timeout limits, the caching age (maximumAge), and whether or not to use high accuracy (enableHighAccuracy)
+
+    -- You can add the google map API in a <script> tag
+        -- https://cs701.herokuapp.com/samples/ex06_geoLocationSample.html
+    
+    -- geoLocation homework help can be gleaned from the examples
+
+---- Web Workers
+    -- Web Workers are used best when there is computationally intensive scripts
+    -- Allows Javascript to run in seperate threads
+    -- You can start as many workers as there are cores 
+
+    -- Dedicated workers 
+        -- Web page creates a dedicated worker
+        -- Web page communicates with the worker exclusively
+    -- Shared workers
+
+    -- Workers cannot access the DOM or window object; they cannot modify either of them either
+    -- 
+
+---- Web Storage
+    -- Alternative to cookies
+    -- Session Storage:
+        -- Windows & Tabs have their own session object
+        -- Destroyed when a window is closed
+    -- Local Storage   
+        -- Accessible across sessions on the same domain
+
+    -- For homework, ensure that the array is just a collection of objects
