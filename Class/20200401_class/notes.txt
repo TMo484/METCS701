@@ -1,0 +1,178 @@
+- Model-View-Controller
+    - Model: The data (that lives in the database)
+        - Data
+        - i.e. The Objects
+    - View: The components on the page (that the user sees)
+        - Presentation
+        - i.e. The DOM
+    - Controller: The logic that interacts Model & View
+        - Application Logic
+        - i.e. Javascript
+
+- AngularJS
+    - AngularJS directives
+        - Similar to HTML attributes or elements
+    - ng-app directive 
+        - The part of the DOM that Angular needs to manage
+        - ng-app can be placed at the <html> tag and the entire site will be Angular
+
+    Model:
+    - ng-model directive   
+        - An attribute that can be added to tags (like <input>) to keep track of changes (like text input)
+        - You can access these models using curly brackets {{ }}
+
+    Controller:
+    - Manages the model; Maintains the data in it's scope; Publishes the data to the View
+    - Identified with HTML body elements
+    - ng-controller directive
+        - Added as an attribute to the HTML tag
+        - Maps to a function in the <script> tag
+            Example:
+                <div ng-controller="HelloController">           <-- Defining the Controller
+                    <p>{{greeting}}</p>                         <-- Identifying the location for future use
+                </div>
+
+                ..
+
+                <script>
+                    function HelloController($scope) {          <-- Must be sure to denote $scope
+                        $scope.greeting = "Hello"               <-- Changing the data in the view
+                    }
+                </script>
+
+        - Controllers can handle multiple models and views by using object notation
+            Examples:
+                <div ng-controller="HelloController">
+                    <p>{{greeting.name}}</p>
+                    <p>{{greeting.age}}</p>
+                </div>
+
+                ..
+
+                <script>
+                    function HelloController($scope) {
+                        $scope.greeting = {name="Tom", age:29}
+                    }
+                </script>
+        
+    - Scopes can be nested & inherited (and pass from parent to child)
+        - ex03 has a good example of this
+        - Very similar to event bubbling
+    - Parent model ($scope) can be modified by the child
+        - e.x. $scope.$parent.(attribute) = ####
+
+    - Pipes ("|") can be used to format or filter data; such as:
+        - Dates
+        - Currency
+        - JSON Objects
+
+    - ng-non-bindable directive is a keyword if you want to utilize Angular expressions (like curly brackets {{ }}) without it evaluating it
+    
+    - Loops (Repeat Directive)
+        - ng-repeat: used to iterate over a collectin of items (usually to generate HTML)
+        - Example:
+            <div ng-controller="repeater">
+                <li ng-repeat="person in people">
+                    {{person}}
+                </li>
+            </div> 
+
+            ..
+
+            <script>
+                function repeater($scope) {
+                    $scope.people = ["Tom", "Suresh", "Mike"]
+                }
+            </script>
+
+        - {{$index}} can be used to access the current index of the Loops
+        - {{$first}}, {{$middle}}, {{$last}} will let you know where you are in the loop
+
+        * Shopping cart will be used on homework
+            - Parent & Child inheritence will also be important
+        - Angular can have built in functionality to validate fields, etc.
+        - Model ({{ }}) can access both a object property or evaluate a function
+
+        - ng-pattern can be used to create validations on fields
+            - If inputs do not match the pattern, they will not be included in the model
+
+    - Angular
+        - Creating modules:
+            - Define a variable inside another imported JS fields
+            - Example:
+                var myModule = angular.module("myApp", []);         <- String identifies the ng-app; Empty array is the required modules
+
+        - Using modules:
+            - Importing the module into the HTML fields
+
+        - Defining modules:
+            - Extending the module by adding functions
+            - Example (exactly the same as previously, but inside another JS file):
+                angular.module("myApp", [])
+                    .controller("ParentController", function($scope) {
+                        $scope.greeting = "Hello"
+                        $scope.cost = 200
+                    })
+                    .controller("ChildController", function($scope) {
+                        $scope.cost = $scope.cost + 300                                 <- Result is 500 (because of inheritence)
+                    }
+        
+            - Extending the module by adding filters
+            - Example:
+                    .filter("underscore", function() {
+                        return function(value) {
+                            return value.replace(/\s+/g, "_")
+                        }
+                    })
+
+
+        - Angular has a built in request resource
+            - Can be utilized by including $http in the function definition
+            - Example:
+                .controller("PlaylistController", function($scope, $http) {
+                    $http.get((PHP Proxy), {                                    <- You can put a PHP file to access and create a Proxy to avoid CORS violations
+                        params: {
+                            url: url
+                        }
+                    })
+                    .then( ... )
+                    .catch( ... )
+                })
+
+            - JSONP (JSON with Padding) is simply a JSON object wrapped in a callback function
+                - You have to trust the API for the data you're getting back, there are opportunities to exploit
+
+
+        - Creating Components:
+            - QUICK NOTE: hyphen-notation in the HTML becomes camelCase notation in the JS
+            - Example:
+                HTML:
+                <div ng-app="myApp">
+                    <hello-world></hello-world>
+                </div>
+
+                JS Module:
+                .component("helloWorld", {
+                    template: '<p>Hello World</p>
+                }
+
+            - You can provide attributes to the component, exactly like you would in React
+            - Example:
+                .component("helloWorld", {
+                    template: '<p>Hello World: {{$ctrl.name}}</p>',
+                    bindings: {name: @name}
+                }
+
+            - Controllers can be used to dynamically set variables within the component JS
+            - Example:
+                .component("helloWorld", {
+                    template: '<p>Hello World: {{$ctrl.name}}</p>',
+                    bindings: {name: @name},
+                    controller: function() {
+                        this.myName = "Bob"                             <- We do not use $scope in the component model, we use this
+                    }
+                }
+
+
+            - template can be replaced with templateUrl to have a link to another HTML file
+                -  This allows the HTML to be modified independantly of the JS
