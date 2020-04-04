@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="shoppingCart">
+    <head>
+        <meta charset="utf-8">
+        <title>Shopping Cart!</title>
+        <link rel="stylesheet" href="shoppingCart.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script type="text/javascript" src="shoppingCartModule.js"></script>
+    </head>
+    <body>
+        <table ng-controller="cartController">
+            <caption><b>My Books</b></caption>
+            <thead ng-show="showHeader()">
+                <tr>
+                    <th>Title</th>
+                    <th>Qty</th>
+                    <th>UnitPrice</th>
+                    <th>Line Total</th>
+                    <th>Total {{total() | currency}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="book in books">
+                    <td>
+                        <input ng-model="book.title" size="15">
+                    </td>
+                    <td>
+                        <input ng-model="book.qty" size="1">
+                    </td>
+                    <td>
+                        <input ng-model="book.price" size="5">
+                    </td>
+                    <td>{{book.price * book.qty | currency}}</td>
+                    <td>
+                        <button ng-click="removeBook($index)">
+                            Remove
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan=5>
+                        <div>
+                            <button ng-click="addBook()">New</button>
+                            <button ng-click="save()">Save</button>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot> 
+        </table>
+    </body>
+
+</html>

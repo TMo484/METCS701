@@ -1,0 +1,33 @@
+table {
+    border-spacing: 0px;
+    border: 2px solid grey;
+}
+
+td, th {
+    padding: 5px 10px;
+}
+
+
+thead {
+    background: black;
+    color: white;
+    border: 0px solid transparent;
+}
+
+tfoot {
+    background: black;
+    color: white;
+}
+
+tfoot div {
+    display: flex;
+    justify-content: space-around;
+}
+
+tbody td {
+    background-color: lightgrey
+}
+
+td + td {
+    border-left: 1px solid grey;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Filters!</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script type="text/javascript" src="filter.js"></script>
+        <style>
+            .flex {
+                display: flex;
+                align-items: center;
+
+            }
+        </style>
+    </head>
+
+    <body ng-app="filterApp">
+        <div ng-controller="inputs">
+            <div class="flex">
+                <h3>Input:</h3>
+                <input id="phrase" type="text" ng-model="phrase">
+            </div>
+            <div class="flex">
+                <h3>Delimiter:</h3>
+                <input id="token" type="text" ng-model="token">
+            </div>
+            
+            <!-- Provide no parameter to the (Default), so that it will always pick up the default param -->
+            <h3>{{phrase|tokenize}} (Default)</h3>
+            <!-- this.token provided as parameter, it will pick up on the default param while token is pristine -->
+            <h3>{{phrase|tokenize:this.token}} (With Option)</h3>
+        </div>
+
+    </body>
+
+</html>
