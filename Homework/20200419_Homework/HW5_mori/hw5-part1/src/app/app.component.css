@@ -1,0 +1,24 @@
+thead tr {
+    background-color: brown;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.odd_true {
+    background-color: lightblue;
+}
+
+table {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+td {
+    border: 1px solid lightgrey;
+}
+
+input {
+    margin: 10px 5px;
+}

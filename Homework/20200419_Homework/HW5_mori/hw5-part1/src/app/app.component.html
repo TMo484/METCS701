@@ -1,0 +1,24 @@
+<h1>MapQuest</h1>
+<div>
+  <input #to id="to" (keyup)="getDirections(to.value, from.value)" value="Boston, MA"/>
+  <input #from id="from" (keyup)="getDirections(to.value, from.value)" value="Cambridge, MA"/>
+  <button id="getDirectionButton" (click)="getDirections(to.value, from.value)">Get Directions</button>
+</div>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <td colspan="4">Distance: {{distance}} - Time: {{time}}</td>
+      </tr>
+    </thead>
+    <tbody *ngFor="let direction of maneuvers; let i=index; let o=odd;">
+      <tr class="odd_{{o}}">
+        <td><img src="{{direction.iconUrl}}"></td>
+        <td>{{i+1}}</td>
+        <td><a href="{{direction.mapUrl}}" target=_blank>{{direction.narrative}}</a></td>
+        <td>{{direction.distance}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
