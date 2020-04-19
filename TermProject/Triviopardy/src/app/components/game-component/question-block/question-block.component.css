@@ -1,0 +1,18 @@
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 85vw;
+    height: 15vh;
+}
+
+#questionCounter {
+    font-size: 3vh;
+    margin: 10px;
+    font-weight: bold;
+}
+
+#question {
+    font-size: 3vh;
+}

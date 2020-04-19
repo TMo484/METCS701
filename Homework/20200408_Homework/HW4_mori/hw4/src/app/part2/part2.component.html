@@ -1,0 +1,13 @@
+<h4>HW4 - Part2</h4>
+
+<div class="flex">
+    <h4>Input: </h4>
+    <input [(ngModel)]="phrase"/>
+</div>
+<div class="flex">
+    <h4>Delimiter: </h4>
+    <input [(ngModel)]="delimiter"/>
+</div>
+
+<h3>{{phrase | tokenizer}} (Default)</h3>
+<h3>{{phrase | tokenizer:delimiter}} (With option)</h3>

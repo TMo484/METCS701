@@ -1,0 +1,17 @@
+.flex-input {
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.flex-input input {
+    margin: 0 0 0 10px;
+}
+
+.flex-input h3 {
+    margin: 0 0 0 30px;
+}
+
+.flex-input button {
+    margin: 0 0 0 20px;
+}

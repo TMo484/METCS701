@@ -1,0 +1,134 @@
+-- Angular Basics
+    - Uses TypeScript (the typed version of Javascript)
+    - Based on Module approach (NgModules)
+    - Components defined within the NgModules
+    - "Angular app" is just a collection of NgModules
+
+    - Angular must be installed through npm
+
+    - <app-root> is the tag (component) that is used to define the application
+    - You must be sure to export the component class
+    - Decorators are a good idea to use
+        - Can define things like:
+            - Selector; i.e. 'app-root'
+            - TemplateURL; i.e. html file
+            - styleURLs; i.e. css file
+
+    - Creating components can be done via Command Line
+        - Example:
+            ng g component Sample
+                - "g" stands for "generate"
+                - "component" can be replaced by "c"
+        
+        - Components created through this method are automatically imported to app
+
+    - Adding input you have to add [(ngModel)]
+        - ngModel has to be imported! And added to imports in the app.module.ts
+            - Example:
+                import { FormsModule } from @angular/forms;
+        - Round brackets "()" serve as output 
+        - Square brackets "[]" serve as input
+
+    - You can pass props to the component similar to React
+        - Constants are passed down using double+single quotes: i.e. "'Tom'"
+        - Parameters are passed down using double quotes: i.e. "greeting"
+        - Example:
+            <child-component [name] = "'Tom'" [greeting] = "'Hello'"> </child-component>          <-- This is using only constants
+
+            <input [ngModel]="greeting">                                        
+            <child-component [name] = "'Tom'" [greeting] = "greeting"> </child-component>       <-- This is utilizing parameters from the input
+
+    - You have to use decorators to declare types during the component definition
+        - Example: 
+            @Input('name')
+            name: string;
+
+            @Input('course')
+            courseName: string;
+            
+    - Props can also be passed back up from Child to Parent
+        - Example:
+            @Output()
+            tuitionChange: EventEmitter<any>;
+            tuition: number;
+
+            constructor() {
+                this.tuitionChange = new EventEmitter<any>()
+            }
+
+            ngOnChanges(changes: SimpleChanges) {
+                let chng:any = changes['courseName'];
+                if (chng) {
+                    // some code to change the state
+                }
+
+                this.tuitionChange.emit(
+                    // object that we want to send out
+                )
+            }
+
+    - In Angular 9 you have to put a setTimeout() on your event handler to avoid race conditions
+    - To wait for finished input, you can use keyup.enter to wait for the enter key
+
+    - Loops
+        - The syntax is slightly different
+        - Example:
+            *ngFor="let course of courseList"
+        - You can use additional parameters like:
+            - First
+            - Last
+            - Even
+            - Odd
+        - Example:
+            *ngFor="let course of courseList;
+                let i=index; let f=first; let l=last; let odd=odd; let even=even;"
+
+    - Conditionals
+        - *ngIf
+        - Can define ng-template for the if statements
+        * Example:
+
+    - Switch
+        - ngSwitch
+        - Can be used as a switch block
+        * Example:
+
+    - Forms
+        - Can add validations as necessary
+
+    - Classes
+        - ngClass
+
+
+-- Angular Pipes
+    - Can generate Pipe similar to how Components are generated
+    - Example:
+        ng g pipe Sample
+
+    - Utilizes a method called transform
+    - Will be automatically imported to app (just as components are)
+    - Can pass parameters to filter 
+    - Example:
+        {{125|TimeConverter:5:3}}       <-- 5 is the first parameter, 3 is the second parameter
+
+    - Pipes can be used to do "lookups" or filter
+        - Sample 03 has a good example
+
+    - Pure Pipes will not update when the object on the left side changes 
+        - It would be very expensive to repeat the filtering operation every time the data changes
+        - Can set pure: false on the Pipe definition
+
+    - async is added as Pipe as well, whenever there is an async function
+
+-- Angular Services
+    - Can be used to provide links to external APIs
+    - Services are provided on the constructor
+        - The service then becomes an instance property (accessible through this.)
+    - Example:
+        constructor(private courseService: CourseService){
+
+        }
+    - Movement toward microservices
+
+-- Angular Directives
+    - 

@@ -1,0 +1,27 @@
+#curve {
+    width: 15vh;
+    height: 15vh;
+    background-color: grey;
+    border-radius: 50%;
+}
+
+.flex {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vh;
+    height: 15vh;
+}
+
+#timeLeft {
+    font-weight: bold;
+    text-align: center;
+    font-size: 5vh;
+}
+
+.overlay {
+    position: relative;
+}

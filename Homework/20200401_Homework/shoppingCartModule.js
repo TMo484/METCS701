@@ -5,6 +5,7 @@ angular.module("shoppingCart", [])
         $scope.load = function() {
             let lsBooks = window.localStorage.getItem("mori_cart");
             if(lsBooks) {
+                console.log(lsBooks)
                 return JSON.parse(lsBooks)
             } else {
                 return [

@@ -1,0 +1,13 @@
+#potentialAnswers {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    background-color: grey;
+    height: 25vh;
+    margin: 1vh;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-around;
+}

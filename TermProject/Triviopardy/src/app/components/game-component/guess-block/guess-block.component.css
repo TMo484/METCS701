@@ -1,0 +1,36 @@
+#guessBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgrey;
+    height: 14vh;
+}
+
+#guessDrop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px dotted black;
+    height: 10vh;
+    width: 46vw;
+}
+
+.drop-hover {
+    background-color: khaki;
+}
+
+.has-guess {
+    background-color: lightblue;
+}
+
+.no-guess {
+    background-color: transparent;
+}
+
+.correct-guess {
+    background-color: lightgreen;
+}
+
+.wrong-guess {
+    background-color: pink;
+}

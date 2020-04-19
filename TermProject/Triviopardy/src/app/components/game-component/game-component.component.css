@@ -1,0 +1,23 @@
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+#submit-block {
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#submitGuess {
+    border: 2px solid darkcyan;
+    background-color: darkcyan;
+    height: 5vh;
+    width: 30vw;
+}
+
+#submitGuess:hover {
+    cursor: pointer;
+    background-color: cadetblue;
+}

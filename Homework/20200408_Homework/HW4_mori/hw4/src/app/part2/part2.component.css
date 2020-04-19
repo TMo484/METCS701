@@ -1,0 +1,12 @@
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+h4 {
+    margin: 15px 0;
+}
+
+div h4, h3 {
+    font-weight: normal;
+}

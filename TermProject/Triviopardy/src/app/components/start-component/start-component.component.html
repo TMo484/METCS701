@@ -1,0 +1,32 @@
+<h1>Welcome to Triviopardy!</h1>
+<h2>Player:</h2>
+<div class="flex-input">
+    <h3>Player Name:</h3>
+    <input id="playerName" [(ngModel)]="playerName"/>
+</div>
+
+<div class="flex-input">
+    <h2>Opponents:</h2>
+    <button (click)="addOpponent()">Add New Opponent</button>
+</div>
+<div *ngFor="let opponent of opponents; let i=index">
+    <div class="flex-input">
+        <h3>Name:</h3>
+        <input [(ngModel)]="opponent.name"/>
+        <h3>Level:</h3>
+        <input [(ngModel)]="opponent.level" size="5"/>
+        <button (click)="removeOpponent(i)">Remove Opponent</button>
+    </div>
+</div>
+
+<h2>Additional Settings:</h2>
+<div class="flex-input">
+    <h3>Number of Questions:</h3>
+    <input [(ngModel)]="numQuestions"/>
+</div>
+<div class="flex-input">
+    <h3>Time Allowed per Question (sec):</h3>
+    <input [(ngModel)]="questionTimer"/>
+</div>
+
+<button (click)="startGame()">Start Game</button>

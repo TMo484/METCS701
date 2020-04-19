@@ -1,0 +1,57 @@
+caption {
+    color: grey;
+    text-align: left;
+    font-size: 18px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid grey;
+}
+
+thead {
+    background-color: black;
+    color: white;
+    text-align: left;
+}
+
+tbody {
+    background-color: lightgrey;
+}
+
+tbody td + td {
+    border-left: 2px solid grey;
+}
+
+td, th {
+    padding: 10px 10px;
+}
+
+tfoot {
+    background-color: black;
+}
+
+button {
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+}
+
+tbody button {
+    background-color: lightcoral;
+}
+
+tfoot button {
+    background-color: cornflowerblue;
+}
+
+input {
+    border-radius: 7px;
+    border: 0;
+    padding: 5px;
+    box-shadow: 3px 3px 5px grey;
+}

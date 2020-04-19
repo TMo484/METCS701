@@ -1,0 +1,25 @@
+.flex {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#playerCard {
+    margin: 10px;
+}
+
+#playerAvatar {
+    height: 70px;
+    width: 70px;
+    background-color: grey;
+    border-radius: 50%;
+}
+
+#playerName {
+    font-weight: bold;
+    text-align: center;
+}
+
+#playerScore {
+    font-style: italic;
+    text-align: center;
+}

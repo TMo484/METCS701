@@ -31,3 +31,7 @@ tbody td {
 td + td {
     border-left: 1px solid grey;
 }
+
+td, th {
+    padding: 5px 10px;
+}

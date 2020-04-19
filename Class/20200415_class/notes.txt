@@ -1,0 +1,46 @@
+-- Angular Services
+    - Provided to components through dependency injection
+    - Components delegate tasks to Services
+    - Created through:
+        ng g service ServiceName
+
+    * @Injectable({}) 
+
+    - Using the service
+        - Import the service class to the file that we want to use it in
+        - Inject it to the constructor:
+
+            serviceData: any;
+
+            constructor(private myService: ServiceName) {
+
+            }
+
+            ngOnInit(): void {
+                this.serviceData = this.myService.serviceFunction()
+            }
+
+    - .subscribe() is used after the service function call to indicate that it is an async function
+        - A callback function is provided to indicate what should happen when the async function returns
+        - Example (Example 03 has good code):
+            this.myService.serviceFunction().subscribe(result => {
+                this.data = result
+            })
+
+    - You can additionally provide a class definition of the data that should be provided back from the service
+    - Using the dollar symbol after a variable indicates to users (convention) that it is an async variable
+        - Example:
+            twitterResults$
+
+        - Using an async pipe (ie twitterResults$ | async) will tell the code to pause until it is available
+
+-- Angular Routing
+    - When utilizing the route on a button; utilize "routerLink"
+    - You should set {useHash: true} on NgModules so that the page can be refreshed and link back to the same page
+    - You can also subscribe to particular parameters on the component to "listen" for changes to the param and update the data
+        - Just be sure to provide .unsubscribe() during the destruction so that there are not hanging subscriptions
+        - Subscribing and Unsubscribing is the more preferred way to handle parameter changes (rather than using event handlers)
+
+
+
+** Homework will be utilizing the template code from Routing Sample 2
