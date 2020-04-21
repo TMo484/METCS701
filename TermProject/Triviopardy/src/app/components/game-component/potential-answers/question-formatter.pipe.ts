@@ -7,7 +7,7 @@ import _ from 'lodash';
 export class QuestionFormatterPipe implements PipeTransform {
 
   transform(value: String, ...args: unknown[]): unknown {
-    return value.replace(/&quot;/g, '\"').replace(/&#039;/g, "\'").replace(/&amp;/g, "\&")
+    return value.replace(/&quot;/g, '\"').replace(/&#039;/g, "\'").replace(/&amp;/g, "\&").replace(/&eacute;/g, "e")
   }
 
 }

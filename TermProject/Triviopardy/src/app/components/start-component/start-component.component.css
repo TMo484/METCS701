@@ -1,11 +1,14 @@
+h1, h2, h3 {
+    margin: 0;
+}
+
 .flex-input {
     display: flex;
     align-items: center;
-    margin: 0 0 10px 0;
 }
 
 .flex-input input {
-    margin: 0 0 0 10px;
+    margin: 0 0 0 15px;
 }
 
 .flex-input h3 {
@@ -14,4 +17,23 @@
 
 .flex-input button {
     margin: 0 0 0 20px;
+}
+
+.section {
+    margin: 20px 0;
+}
+
+#startGame {
+    border: 2px solid darkcyan;
+    background-color: darkcyan;
+    height: 5vh;
+    width: 30vw;
+}
+
+.title {
+    text-align: center
+}
+
+.flex-input h4 {
+    margin: 0 10px;
 }

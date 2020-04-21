@@ -1,0 +1,22 @@
+h1, h2 {
+    text-align: center;
+}
+
+#finishButton {
+    border: 2px solid darkcyan;
+    background-color: darkcyan;
+    height: 5vh;
+    width: 30vw;
+}
+
+.flex {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+}
+
+.center-align {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}

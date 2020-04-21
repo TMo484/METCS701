@@ -1,13 +1,13 @@
 <div>
-    <app-team-avatars [player]="this.player" [opponents]="this.opponents"></app-team-avatars>
-    <div class="flex">
-      <app-countdown-clock [countdownTimer]="this.countdownTimer"></app-countdown-clock>
-      <app-question-block [question]='this.question["results"][this.currQuestionNum - 1]["question"]' [questionNum]="this.currQuestionNum" [numQuestions]="this.numQuestions"></app-question-block>
-    </div>
-    <app-potential-answers [incorrectAnswers]='this.question["results"][this.currQuestionNum - 1]["incorrect_answers"]' [correctAnswer]='this.question["results"][this.currQuestionNum - 1]["correct_answer"]'></app-potential-answers>
-    <app-guess-block></app-guess-block>
-    <div id="submit-block">
-      <button (click)="handleSubmit()" id="submitGuess">Submit Guess</button>
-    </div>
+  <app-team-avatars [player]="this.player" [opponents]="this.opponents"></app-team-avatars>
+  <hr/>
+  <div class="flex">
+    <app-countdown-clock [countdownTimer]="this.countdownTimer"></app-countdown-clock>
+    <app-question-block [question]='this.question["results"][this.currQuestionNum - 1]["question"]' [questionNum]="this.currQuestionNum" [numQuestions]="this.numQuestions"></app-question-block>
   </div>
-  
+  <app-potential-answers [incorrectAnswers]='this.question["results"][this.currQuestionNum - 1]["incorrect_answers"]' [correctAnswer]='this.question["results"][this.currQuestionNum - 1]["correct_answer"]'></app-potential-answers>
+  <app-guess-block></app-guess-block>
+  <div id="submit-block">
+    <button (click)="handleSubmit()" id="submitGuess">Submit Guess</button>
+  </div>
+</div>

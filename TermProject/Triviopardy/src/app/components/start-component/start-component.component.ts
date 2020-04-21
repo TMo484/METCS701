@@ -35,6 +35,10 @@ export class StartComponentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  enoughOpponents() {
+    return this.opponents.length < 6;
+  }
+
   removeOpponent(i:Number) {
     this.opponents = this.opponents.filter((opponent, index) => index !== i)
   }

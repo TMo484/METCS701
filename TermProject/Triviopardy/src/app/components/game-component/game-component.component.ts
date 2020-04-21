@@ -91,7 +91,7 @@ export class GameComponentComponent implements OnInit {
     } else if (buttonStatus === "View Results") {
       this.completeGame()
     }
-    this.toggleButton()
+    setTimeout(() => {this.toggleButton()}, 500)
   }
 
   submitGuess() {
@@ -192,5 +192,6 @@ export class GameComponentComponent implements OnInit {
     this.player = loadObject["player"]
     this.opponents = loadObject["opponents"]
     this.countdownTimerLimit = loadObject["countdownTimerLimit"]
+    this.countdownTimer = loadObject["countdownTimerLimit"]
   }
 }
