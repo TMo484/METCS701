@@ -1,8 +1,16 @@
 <h1>Triviopardy!</h1>
-<h2>Congratulations, you placed {{getPlace()}}!</h2>
-<div class="center-align">
-    <app-team-avatars [player]="this.player" [opponents]="this.opponents"></app-team-avatars>
+<div *ngIf="!checkGameProgress()">
+    <h2>Congratulations, you placed {{getPlace()}}!</h2>
+    <div class="center-align">
+        <app-team-avatars [player]="this.player" [opponents]="this.opponents"></app-team-avatars>
+    </div>
+    <div class="flex">
+        <button (click)="finishGame()" id="finishButton">Finish</button>
+    </div>
 </div>
-<div class="flex">
-    <button (click)="finishGame()" id="finishButton">Finish</button>
+<div *ngIf="checkGameProgress()">
+    <h2>Hey! You can't be here. You have a game in progress!</h2>
+    <div class="flex">
+        <button (click)="resumeGame()" id="finishButton">Resume Game</button>
+    </div>
 </div>

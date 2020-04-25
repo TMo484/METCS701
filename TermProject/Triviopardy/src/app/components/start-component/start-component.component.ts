@@ -59,7 +59,19 @@ export class StartComponentComponent implements OnInit {
     saveObject["opponents"] = this.opponents;
     saveObject["countdownTimerLimit"] = this.questionTimer;
     window.localStorage.setItem("triviopardy_savestate", JSON.stringify(saveObject))
+    this.router.navigate(["play"])
+  }
 
+  checkGameInProgress() {
+    let saveObject = JSON.parse(window.localStorage.getItem("triviopardy_savestate"))
+    if(saveObject) {
+      return JSON.parse(window.localStorage.getItem("triviopardy_savestate"))["gameInProgress"]
+    } else {
+      return false
+    }
+  }
+
+  resumeGame() {
     this.router.navigate(["play"])
   }
 

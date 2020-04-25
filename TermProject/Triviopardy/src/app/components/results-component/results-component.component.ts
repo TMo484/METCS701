@@ -49,4 +49,17 @@ export class ResultsComponentComponent implements OnInit {
     this.router.navigate([""])
   }
 
+  checkGameProgress() {
+    let saveObject = JSON.parse(window.localStorage.getItem("triviopardy_savestate"))
+    if(saveObject) {
+      return JSON.parse(window.localStorage.getItem("triviopardy_savestate"))["gameInProgress"]
+    } else {
+      return false
+    }
+  }
+
+  resumeGame() {
+    this.router.navigate(["play"])
+  }
+
 }

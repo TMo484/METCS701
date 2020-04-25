@@ -1,40 +1,55 @@
 <h1 class="title">Welcome to Triviopardy!</h1>
-<h2>Player:</h2>
-<div class="section">
-    <div class="flex-input">
-        <h3>Player Name:</h3>
-        <input id="playerName" [(ngModel)]="playerName"/>
-    </div>
-</div>
-<div class="section">
-    <div class="flex-input">
-        <h2>Opponents:</h2>
-        <button (click)="addOpponent()" [disabled]="!enoughOpponents()">Add New Opponent</button>
-    </div>
-</div>
-<div class="section">
-    <div *ngFor="let opponent of opponents; let i=index">
-        <div class="flex-input">
-            <h3>Name:</h3>
-            <input [(ngModel)]="opponent.name"/>
-            <h3>Level:</h3>
-            <!-- <input [(ngModel)]="opponent.level" size="5"/> -->
-            <input type="range" min="1" max="10" value="1" class="slider" [(ngModel)]="opponent.level"/>
-            <h4>{{opponent.level}}</h4>
-            <button (click)="removeOpponent(i)">Remove Opponent</button>
+
+<section>
+    <div class="container" *ngIf="checkGameInProgress()">
+        <h3>Hey! It looks like you're in the middle of a game</h3>
+        <h4>Do you want to resume?</h4>
+        <div class="button-container">
+            <button (click)="resumeGame()" id="startGame">Resume Game</button>
         </div>
     </div>
-</div>
-<div class="section">
-    <h2>Additional Settings:</h2>
-    <div class="flex-input">
-        <h3>Number of Questions:</h3>
-        <input [(ngModel)]="numQuestions"/>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Player:</h2>
+        <div class="section">
+            <div class="flex-input">
+                <h3>Player Name:</h3>
+                <input id="playerName" [(ngModel)]="playerName"/>
+            </div>
+        </div>
+        <div class="section">
+            <div class="flex-input">
+                <h2>Opponents:</h2>
+                <button (click)="addOpponent()" [disabled]="!enoughOpponents()">Add New Opponent</button>
+            </div>
+        </div>
+        <div class="section">
+            <div *ngFor="let opponent of opponents; let i=index">
+                <div class="flex-input">
+                    <h3>Name:</h3>
+                    <input [(ngModel)]="opponent.name"/>
+                    <h3>Level:</h3>
+                    <input type="range" min="1" max="10" value="1" class="slider" [(ngModel)]="opponent.level"/>
+                    <h4>{{opponent.level}}</h4>
+                    <button (click)="removeOpponent(i)">Remove Opponent</button>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>Additional Settings:</h2>
+            <div class="flex-input">
+                <h3>Number of Questions:</h3>
+                <input [(ngModel)]="numQuestions"/>
+            </div>
+            <div class="flex-input">
+                <h3>Time Allowed per Question (sec):</h3>
+                <input [(ngModel)]="questionTimer"/>
+            </div>
+        </div>
+        <div class="button-container">
+            <button (click)="startGame()" id="startGame">Start Game</button>
+        </div>
     </div>
-    <div class="flex-input">
-        <h3>Time Allowed per Question (sec):</h3>
-        <input [(ngModel)]="questionTimer"/>
-    </div>
-</div>
-<button (click)="startGame()" id="startGame">Start Game</button>
-<hr/>
+</section>
