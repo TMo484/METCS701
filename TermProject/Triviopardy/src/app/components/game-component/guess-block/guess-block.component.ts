@@ -39,7 +39,6 @@ export class GuessBlockComponent implements OnInit {
   }
 
   resetDropTarget() {
-    console.log("resetting")
     this.currentGuess = "Drag Guess Here"
   }
 

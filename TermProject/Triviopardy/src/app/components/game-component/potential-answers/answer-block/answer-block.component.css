@@ -7,3 +7,7 @@
     align-items: center;
     cursor: grab;
 }
+
+.correct-answer {
+    background-color: lightgreen;
+}

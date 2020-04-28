@@ -15,6 +15,7 @@ import { QuestionFormatterPipe } from './components/game-component/potential-ans
 import { GameComponentComponent } from './components/game-component/game-component.component';
 import { ResultsComponentComponent } from './components/results-component/results-component.component';
 import { StartComponentComponent } from './components/start-component/start-component.component';
+import { TimeFormatterPipe } from './components/game-component/countdown-clock/time-formatter.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { StartComponentComponent } from './components/start-component/start-comp
     QuestionFormatterPipe,
     GameComponentComponent,
     ResultsComponentComponent,
-    StartComponentComponent
+    StartComponentComponent,
+    TimeFormatterPipe
   ],
   imports: [
     BrowserModule,

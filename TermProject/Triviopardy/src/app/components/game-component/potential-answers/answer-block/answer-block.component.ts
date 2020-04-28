@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class AnswerBlockComponent implements OnInit {
 
   @Input() answer: any;
+  @Input() correct: boolean;
 
   constructor() {
   }

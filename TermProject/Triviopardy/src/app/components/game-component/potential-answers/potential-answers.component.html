@@ -1,10 +1,10 @@
 <div id="potentialAnswers">
     <div class="flex">
-        <app-answer-block ng-bind-html="answer" [answer]="this.potentialAnswers[0]"></app-answer-block>
-        <app-answer-block ng-bind-html="answer" [answer]="this.potentialAnswers[1]"></app-answer-block>
+        <app-answer-block ng-bind-html="answer" [answer]="this.potentialAnswers[0]" [correct]="this.correctAnswer"></app-answer-block>
+        <app-answer-block ng-bind-html="answer" [answer]="this.potentialAnswers[1]" [correct]="this.correctAnswer"></app-answer-block>
     </div>
     <div class="flex">
-        <app-answer-block ng-bind-html="answer" [answer]="this.potentialAnswers[2]"></app-answer-block>
-        <app-answer-block ng-bind-html="answer" [answer]="this.potentialAnswers[3]"></app-answer-block>
+        <app-answer-block ng-bind-html="answer" [answer]="this.potentialAnswers[2]" [correct]="this.correctAnswer"></app-answer-block>
+        <app-answer-block ng-bind-html="answer" [answer]="this.potentialAnswers[3]" [correct]="this.correctAnswer"></app-answer-block>
     </div>
 </div>

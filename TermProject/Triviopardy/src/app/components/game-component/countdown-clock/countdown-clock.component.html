@@ -1,4 +1,6 @@
 <div class="overlay">
-    <div id="curve"></div>
-    <div class="flex"><div id="timeLeft">{{countdownTimer}}</div></div>
+    <div id="curve">
+        <canvas id="canvas" width="200" height="200">{{updateCanvas()}}</canvas>
+    </div>
+    <div class="flex"><div id="timeLeft">{{countdownTimer | timeFormatter}}</div></div>
 </div>

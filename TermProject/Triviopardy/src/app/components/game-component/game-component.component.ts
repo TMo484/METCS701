@@ -45,13 +45,13 @@ export class GameComponentComponent implements OnInit {
   ngOnInit() {
     this.loadGame()
     this.grabQuestion()
-    setInterval(this.decrementTimer.bind(this), 1000)
+    setInterval(this.decrementTimer.bind(this), 50)
   }
 
   decrementTimer() {
     if(this.gameInProgress) {
       if(this.countdownTimer > 0 && this.getButtonStatus() === "Submit Guess") {
-        this.countdownTimer -= 1;
+        this.countdownTimer -= .05;
       } else {
         if (this.getButtonStatus() === "Submit Guess") {
           this.handleSubmit()
@@ -102,6 +102,7 @@ export class GameComponentComponent implements OnInit {
     }
     let guessedCorrect = this.checkGuess()
     this.highlightGuess(guessedCorrect)
+    this.highlightAnswerBlocks()
     this.assignPoints(guessedCorrect)
   }
 
@@ -114,6 +115,22 @@ export class GameComponentComponent implements OnInit {
       document.getElementById("guessDrop").setAttribute("class", "correct-guess")
     } else {
       document.getElementById("guessDrop").setAttribute("class", "wrong-guess")
+    }
+  }
+
+  highlightAnswerBlocks() {
+    let answerTags: HTMLCollection = document.getElementsByTagName("app-answer-block")
+    for(let i=0; i<answerTags.length; i++) {
+      if(answerTags[i].getAttribute("ng-reflect-answer") === answerTags[i].getAttribute("ng-reflect-correct")) {
+        answerTags[i].children[0].setAttribute("class", "answerBlock correct-answer")
+      }
+    }
+  }
+
+  resetAnswerBlocks() {
+    let answerTags: HTMLCollection = document.getElementsByTagName("app-answer-block")
+    for(let i=0; i<answerTags.length; i++) {
+      answerTags[i].children[0].setAttribute("class", "answerBlock")
     }
   }
 
@@ -164,6 +181,8 @@ export class GameComponentComponent implements OnInit {
     // reset the guess block
     document.getElementById("guessDrop").setAttribute("class", "no-guess")
     document.getElementById("guess").innerText = "Drag Guess Here"
+    // reset the answer blocks formatting
+    this.resetAnswerBlocks()
     // change button back to submit
     document.getElementById("submitGuess").innerHTML = "Submit Guess"
   }

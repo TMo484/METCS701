@@ -1,8 +1,6 @@
-#curve {
+#canvas {
     width: 15vh;
     height: 15vh;
-    background-color: grey;
-    border-radius: 50%;
 }
 
 .flex {
